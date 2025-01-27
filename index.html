@@ -12,84 +12,81 @@
       align-items: center;
       min-height: 100vh;
       margin: 0;
-      padding: 20px;
-      background: url('https://www.w3schools.com/w3images/love.jpg') no-repeat center center fixed; /* Love theme background image */
-      background-size: cover; /* Ensure the image covers the screen */
+      padding: 0;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
       font-family: 'Arial', sans-serif;
-      overflow-y: auto; /* Enables scrolling */
-      text-align: center;
+      overflow: hidden;
+    }
+
+    .container {
+      perspective: 1000px;
+    }
+
+    /* Flip card styles */
+    .card-wrapper {
+      width: 90%;
+      max-width: 400px;
       position: relative;
+      transform-style: preserve-3d;
+      transition: transform 1s;
+      cursor: pointer;
     }
 
-    /* Subtle dark overlay for better text visibility */
-    body::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
-      z-index: 0;
+    .card-wrapper.flipped {
+      transform: rotateY(180deg);
     }
 
-    /* Birthday card styles */
     .card {
-      background: rgba(255, 255, 255, 0.8); /* Slight opacity for the card to keep it soft */
+      position: absolute;
+      width: 100%;
+      height: auto;
+      backface-visibility: hidden;
       border-radius: 20px;
       padding: 20px;
-      width: 100%;
-      max-width: 600px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      position: relative;
-      z-index: 1; /* Make sure the card is above the overlay */
     }
 
-    /* Text color and visibility */
-    h1 {
-      font-size: 2.5rem;
-      color: #333; /* Dark color for text */
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Light text shadow for visibility */
+    .front {
+      background: rgba(255, 255, 255, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .front h1 {
+      font-size: 2rem;
+      color: #ff6f61;
       animation: bounce 2s infinite;
     }
 
-    p {
+    .back {
+      background: rgba(255, 255, 255, 0.9);
+      color: #333;
+      transform: rotateY(180deg);
+      overflow-y: auto;
+    }
+
+    .back h1 {
+      font-size: 1.8rem;
+      color: #ff6f61;
+      margin-bottom: 15px;
+    }
+
+    .back p {
       font-size: 1rem;
-      color: #333; /* Dark color for the text */
       line-height: 1.6;
-      margin-top: 15px;
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Subtle text shadow */
-      word-wrap: break-word;
+      margin: 10px 0;
     }
 
     .footer {
       margin-top: 20px;
       font-style: italic;
       font-size: 0.9rem;
-      color: #333; /* Dark color for footer */
       opacity: 0.8;
     }
 
-    /* Falling hearts animation */
-    .heart {
-      position: absolute;
-      color: #ff6f61;
-      font-size: 2rem;
-      animation: float 5s infinite;
-      opacity: 0.8;
-    }
-
-    @keyframes float {
-      0% {
-        transform: translateY(-100vh);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(100vh);
-        opacity: 0;
-      }
-    }
-
+    /* Keyframe animations */
     @keyframes bounce {
       0%, 100% {
         transform: translateY(0);
@@ -100,71 +97,41 @@
     }
 
     /* Responsive adjustments */
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 2rem;
-      }
-
-      p {
-        font-size: 0.9rem;
-        line-height: 1.4;
-      }
-
-      .heart {
+    @media (max-width: 480px) {
+      .front h1, .back h1 {
         font-size: 1.5rem;
       }
-    }
 
-    @media (max-width: 480px) {
-      h1 {
-        font-size: 1.8rem;
-      }
-
-      p {
-        font-size: 0.8rem;
-      }
-
-      .heart {
-        font-size: 1.2rem;
+      .back p {
+        font-size: 0.9rem;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Birthday card -->
-  <div class="card">
-    <h1>🎉 Happy Birthday My Dear Nanu! 🎂</h1>
-    <p>
-      Happiest birthday to my favourite human. Many many happy returns of the day my love. May this day fulfil all your dreams and bring the best out of you. I know nothing can topple 2022 the year when we find the existence of each other but I wish this silver year becomes more magical as turning 25 is a beautiful milestone of life. No matter how much you hate to grow older, trust me everything will be alright and this phase will be better than ever and this is from someone who has already been there 😜. The grass is greener on this side too, my forever tuin.
-    </p>
-    <p>
-      I may not know how to make your day special but here's my little attempt. let me flex my tiny tech skill. I want you to have a cute little smile while reading this from this special domain which is yours and yours alone, dedicated to my one and only.
-    </p>
-    <p>
-      First of all thank you for letting me into your beautiful life and giving me the privilege of being part of your journey. No-one is luckier than me to have access to your personal world. From eagerly waiting for your reply to cherishing every moment, every click of our meet-ups; we have come such a long way together. The three years we spent together feels nothing short of a dream for me; The prettiest dream which came true for me. Still craving for your physical touch, holding hands, those hugs and kisses. Why are you not already with me Kuni 🥹
-    </p>
-    <p>
-      It's up to you whether to believe it or not but since the beginning only it felt like you are the special one, my own, my one and only and whom I can say as mine and only mine. Okay, may be not during the 1st phase of our conversation, but for sure after that little gap when we started talking again; I had that feeling of something quite special is happening in my life.If I have one regret, then it's not knowing you sooner, not having you since my childhood, not loving you a bit earlier. Everytime it will feel like this, we have talked a little less, we have chatted a little less, we have hugged a little less, we have kissed a little less and we have spent time a little less than what I would have wanted. How I wish I found you earlier in my life. Nevertheless I promise, I will do my best to compensate for all the time we missed. I will make sure, we will cherish every moment together, create memories everyday.
-    </p>
-    <p>
-      Once again, wishing my one and only the very best. May this year be as beautiful as you are (And you are so damn beautiful; you are the prettiest 25 I swear 🥹). I don't know if I will ever be able to express how much you mean to me even after writing numerous paragraphs on your every birthday. But do remember you are not just my favourite person, you are my wife, my better half, my significant other 😌, my soulmate, my other half, my friend, my companions, my chaddi buddy, my therapist, my kuni, my gelhiiii, my Mama, my Tuin, my every every every everythingggg. I love you endlessly mo Mama ❣️
-    </p>
-    <p>
-      Happy 25, have a great one (obviously with me 😉)
-    </p>
-    <p>
-      My warm hugs for the little one 🫂🫂🫂🫂🫂🫂🫂🫂🫂🫂🫂🫂🫂🫂🫂🫂🫂🫂🫂🫂🫂🫂🫂🫂🫂
-    </p>
+  <div class="container">
+    <!-- Flip Card Wrapper -->
+    <div class="card-wrapper" onclick="flipCard()">
+      <!-- Front Side -->
+      <div class="card front">
+        <h1>Open it, Birthday Girl 🎉</h1>
+      </div>
 
-    <div class="footer">— With lots of love and best wishes from yours truly!</div>
+      <!-- Back Side -->
+      <div class="card back">
+        <h1>🎉 Happy Birthday My Dear Nanu! 🎂</h1>
+        <p>Happiest birthday to my favourite human. Many many happy returns of the day, my love. May this day fulfil all your dreams and bring the best out of you...</p>
+        <p>I know nothing can topple 2022, the year when we found the existence of each other. But I wish this silver year becomes more magical as turning 25 is a beautiful milestone...</p>
+        <p>Once again, wishing my one and only the very best. You are my favourite person, my soulmate, my chaddi buddy, and my every everything. I love you endlessly, mo Mama! ❣️</p>
+        <div class="footer">— With lots of love and best wishes from yours truly!</div>
+      </div>
+    </div>
   </div>
 
-  <!-- Falling hearts -->
-  <div class="heart" style="left: 10%; animation-delay: 0s;">❤️</div>
-  <div class="heart" style="left: 25%; animation-delay: 1s;">💖</div>
-  <div class="heart" style="left: 40%; animation-delay: 2s;">💕</div>
-  <div class="heart" style="left: 55%; animation-delay: 3s;">💞</div>
-  <div class="heart" style="left: 70%; animation-delay: 4s;">💓</div>
-  <div class="heart" style="left: 85%; animation-delay: 5s;">💗</div>
+  <script>
+    function flipCard() {
+      document.querySelector('.card-wrapper').classList.toggle('flipped');
+    }
+  </script>
 </body>
 </html>
