@@ -13,36 +13,52 @@
       min-height: 100vh;
       margin: 0;
       padding: 20px;
-      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      background: url('https://www.w3schools.com/w3images/love.jpg') no-repeat center center fixed; /* Love theme background image */
+      background-size: cover; /* Ensure the image covers the screen */
       font-family: 'Arial', sans-serif;
-      color: #fff;
       overflow-y: auto; /* Enables scrolling */
       text-align: center;
+      position: relative;
+    }
+
+    /* Subtle dark overlay for better text visibility */
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+      z-index: 0;
     }
 
     /* Birthday card styles */
     .card {
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.8); /* Slight opacity for the card to keep it soft */
       border-radius: 20px;
       padding: 20px;
       width: 100%;
       max-width: 600px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
       position: relative;
-      z-index: 1;
+      z-index: 1; /* Make sure the card is above the overlay */
     }
 
+    /* Text color and visibility */
     h1 {
       font-size: 2.5rem;
-      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+      color: #333; /* Dark color for text */
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Light text shadow for visibility */
       animation: bounce 2s infinite;
     }
 
     p {
       font-size: 1rem;
+      color: #333; /* Dark color for the text */
       line-height: 1.6;
       margin-top: 15px;
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Subtle text shadow */
       word-wrap: break-word;
     }
 
@@ -50,6 +66,7 @@
       margin-top: 20px;
       font-style: italic;
       font-size: 0.9rem;
+      color: #333; /* Dark color for footer */
       opacity: 0.8;
     }
 
